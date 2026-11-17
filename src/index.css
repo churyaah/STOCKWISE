@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #f2f2f2;
+    color: #111111;
+    font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Display', 'Inter', sans-serif;
+    letter-spacing: -0.04em;
+  }
+
+  /* Monochromatic custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f2f2f2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #b6b5b5;
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #111111;
+  }
+}
+
+/* Hide scrollbar utility for horizontal pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
