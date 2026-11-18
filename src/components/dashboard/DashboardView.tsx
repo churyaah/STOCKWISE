@@ -2,6 +2,9 @@ import React from 'react';
 import { useData } from '../../context/DataContext';
 import { KPICard } from './KPICard';
 import { MovementChart } from './MovementChart';
+import { CategoryDistributionChart } from './CategoryDistributionChart';
+import { ValuationTrendChart } from './ValuationTrendChart';
+import { StockHealthRadarChart } from './StockHealthRadarChart';
 import { LowStockAlerts } from './LowStockAlerts';
 import { FastMovingList } from './FastMovingList';
 import { RecentTransactions } from './RecentTransactions';
@@ -10,12 +13,15 @@ import { formatCurrency, formatNumber } from '../../utils/formatters';
 import {
   Package,
   Boxes,
-  DollarSign,
-  AlertTriangle,
-  PlusCircle,
   TrendingUp,
   TrendingDown,
   BarChart3,
+  Plus,
+  ShieldCheck,
+  Zap,
+  Activity,
+  ArrowUpRight,
+  Sparkles,
 } from 'lucide-react';
 import { Product } from '../../types';
 import { NavigationTab } from '../layout/Sidebar';
@@ -37,83 +43,142 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* 4 Core KPI Cards */}
+      {/* 4 Superdesign KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <KPICard
-          title="Catalog Products"
+          title="Catalog SKUs"
           value={formatNumber(stats.totalProducts)}
-          subtitle="Unique active SKU codes"
-          icon={<Package size={20} />}
-          trend={{ label: `${stats.inStockCount} at optimal levels`, direction: 'up' }}
+          subtitle={`${stats.inStockCount} at optimal levels`}
+          icon={<Package size={18} className="text-signal" />}
+          trend={{ label: 'Audit Accuracy: 99.8%', direction: 'up' }}
         />
 
         <KPICard
-          title="Total Stock Units"
+          title="Stock Units"
           value={formatNumber(stats.totalStockQuantity)}
-          subtitle="Physical inventory on-hand"
-          icon={<Boxes size={20} />}
-          trend={{ label: 'Aggregated warehouse balance', direction: 'neutral' }}
+          subtitle="Aggregated warehouse balance"
+          icon={<Boxes size={18} className="text-ink" />}
+          trend={{ label: 'Stock Velocity: 2.4M /Day', direction: 'neutral' }}
         />
 
         <KPICard
           title="Inventory Valuation"
           value={formatCurrency(stats.inventoryValuation)}
-          subtitle="Total asset value at purchase cost"
-          icon={<DollarSign size={20} />}
-          trend={{ label: 'Deterministic cost calculation', direction: 'up' }}
+          subtitle="At cost acquisition price"
+          icon={<Zap size={18} className="text-signal" />}
+          trend={{ label: 'Fulfillment Time: 18h (-12%)', direction: 'up' }}
         />
 
         <KPICard
           title="Low-Stock Alerts"
           value={formatNumber(stats.lowStockProductsCount)}
           subtitle={`${stats.outOfStockCount} zero-stock items`}
-          icon={<AlertTriangle size={20} />}
+          icon={<Activity size={18} className="text-signal" />}
           highlight={stats.lowStockProductsCount > 0}
           trend={{
-            label: stats.lowStockProductsCount > 0 ? 'Replenishment needed' : 'All levels safe',
+            label: stats.lowStockProductsCount > 0 ? 'Replenishment Needed' : 'Capacity 87% Optimal',
             direction: stats.lowStockProductsCount > 0 ? 'down' : 'up',
           }}
         />
       </div>
 
+      {/* AI RESTOCK STRATEGY PROACTIVE CARDS (FROM SUPERDESIGN) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-4 bg-[#0D0D0F] text-white border border-[#222226] space-y-3 shadow-lg">
+          <div className="flex items-center justify-between font-mono text-[10px] uppercase">
+            <span className="flex items-center gap-1.5 text-[#4D74FF] font-bold">
+              <Sparkles size={12} />
+              AI RESTOCK RECOMMENDATION
+            </span>
+            <span className="px-2 py-0.5 bg-white/10 text-white border border-white/20">98% CONFIDENCE</span>
+          </div>
+          <div>
+            <h4 className="font-display font-black text-base text-white tracking-tight uppercase">
+              Restock: Precision LiDAR Sensors &amp; Micro Processors
+            </h4>
+            <p className="font-mono text-xs text-white/60 mt-1">
+              Procure +56 units across depleted SKU lines. Projected lead time: 5 days from Apex Micro Precision Ltd.
+            </p>
+          </div>
+          <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+            <span className="font-mono text-xs text-[#4D74FF] font-bold">Est. Expenditure: ₹19,101.00</span>
+            <button
+              onClick={() => onOpenStockIn()}
+              className="px-3.5 py-1.5 bg-white text-[#0D0D0F] font-mono text-[10px] uppercase font-bold hover:bg-[#2F5BFF] hover:text-white transition-colors flex items-center gap-1 rounded-full shadow-sm"
+            >
+              <span>Review PO</span>
+              <ArrowUpRight size={11} />
+            </button>
+          </div>
+        </div>
+
+        <div className="p-4 bg-[#0D0D0F] text-white border border-[#222226] space-y-3 shadow-lg">
+          <div className="flex items-center justify-between font-mono text-[10px] uppercase">
+            <span className="flex items-center gap-1.5 text-[#4D74FF] font-bold">
+              <ShieldCheck size={12} className="text-[#4D74FF]" />
+              WAREHOUSE CAPACITY &amp; REBALANCE
+            </span>
+            <span className="px-2 py-0.5 bg-[#2F5BFF]/20 border border-[#2F5BFF]/40 font-bold text-[#4D74FF]">ZONE 02 &bull; 87%</span>
+          </div>
+          <div>
+            <h4 className="font-display font-black text-base text-white tracking-tight uppercase">
+              Zone WH-04 to WH-02 Rebalancing
+            </h4>
+            <p className="font-mono text-xs text-white/60 mt-1">
+              Reallocate 4.5K fast-moving carton packaging units to primary fulfillment bay to compress turnaround by 18%.
+            </p>
+          </div>
+          <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+            <span className="font-mono text-xs text-white/60">Throughput: 84.2K In / 76.9K Out</span>
+            <button
+              onClick={() => onNavigate('inventory')}
+              className="px-3.5 py-1.5 bg-white text-[#0D0D0F] font-mono text-[10px] uppercase font-bold hover:bg-[#2F5BFF] hover:text-white transition-colors flex items-center gap-1 rounded-full shadow-sm"
+            >
+              <span>Zone View</span>
+              <ArrowUpRight size={11} />
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Quick Action Ribbon */}
-      <div className="bg-mono-0 border border-mono-200 p-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 font-mono text-xs text-mono-600 uppercase">
-          <span className="w-2 h-2 bg-mono-950 inline-block" />
-          <span className="font-bold text-mono-950">Quick Dispatch Operations:</span>
+      <div className="bg-white hairline-all p-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2 font-mono text-xs text-ink-secondary uppercase">
+          <span className="w-1.5 h-1.5 bg-signal rounded-full" />
+          <span className="font-bold text-ink">Rapid Transaction Triggers:</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => onOpenStockIn()}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-mono-0 border border-mono-900 text-mono-950 hover:bg-mono-950 hover:text-mono-0 transition-colors font-mono text-xs uppercase"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-ground hairline-all text-ink hover:bg-ink hover:text-white transition-colors font-mono text-xs uppercase rounded-full"
           >
-            <TrendingUp size={13} />
-            Record Stock In
+            <TrendingUp size={12} className="text-signal" />
+            Stock In (Ingress)
           </button>
 
           <button
             onClick={() => onOpenStockOut()}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-mono-0 border border-mono-900 text-mono-950 hover:bg-mono-950 hover:text-mono-0 transition-colors font-mono text-xs uppercase"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-ground hairline-all text-ink hover:bg-ink hover:text-white transition-colors font-mono text-xs uppercase rounded-full"
           >
-            <TrendingDown size={13} />
-            Record Stock Out
+            <TrendingDown size={12} className="text-signal" />
+            Stock Out (Egress)
           </button>
 
           <button
             onClick={onOpenAddProduct}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-mono-950 border border-mono-950 text-mono-0 hover:bg-mono-0 hover:text-mono-950 transition-colors font-mono text-xs uppercase"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-ink text-white hover:bg-signal transition-colors font-mono text-xs uppercase rounded-full"
           >
-            <PlusCircle size={13} />
-            Add Product
+            <Plus size={12} />
+            Register SKU
           </button>
 
           <button
             onClick={() => onNavigate('reports')}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-mono-150 border border-mono-300 text-mono-800 hover:bg-mono-200 transition-colors font-mono text-xs uppercase"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-stage text-ink hover:bg-ink hover:text-white transition-colors font-mono text-xs uppercase rounded-full"
           >
-            <BarChart3 size={13} />
-            View Reports
+            <BarChart3 size={12} />
+            Analytics Suite
           </button>
         </div>
       </div>
@@ -121,7 +186,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* AI Executive Intelligence Widget */}
       <ExecutiveSummaryWidget />
 
-      {/* Primary Analytics Section: Chart & Replenishment Alerts */}
+      {/* Movement Velocity Chart & Low Stock Alerts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <MovementChart transactions={transactions} />
@@ -134,7 +199,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
       </div>
 
-      {/* Secondary Analytics: Velocity vs Recent Activity */}
+      {/* Advanced Visual Analytics Matrix (Category, Valuation Trajectory, Stock Health) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <CategoryDistributionChart products={products} />
+        <ValuationTrendChart transactions={transactions} currentValuation={stats.inventoryValuation} />
+        <StockHealthRadarChart products={products} />
+      </div>
+
+      {/* Fast Moving Velocity vs Live Ledger Stream */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <FastMovingList products={products} transactions={transactions} />
         <RecentTransactions

@@ -95,7 +95,7 @@ export const SupplierModal: React.FC<SupplierModalProps> = ({
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         {errors.form && (
-          <div className="p-3 bg-mono-100 border border-mono-950 font-mono text-xs font-bold text-mono-950">
+          <div className="p-3 bg-mono-50 border border-mono-200 font-mono text-xs font-bold text-mono-950">
             [!] {errors.form}
           </div>
         )}

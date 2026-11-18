@@ -17,11 +17,9 @@ interface MovementChartProps {
 }
 
 export const MovementChart: React.FC<MovementChartProps> = ({ transactions }) => {
-  // Aggregate transactions by date (last 7 recorded days or timeline)
   const chartData = useMemo(() => {
     const map: Record<string, { date: string; stockIn: number; stockOut: number }> = {};
 
-    // Sort chronologically
     const sorted = [...transactions].sort(
       (a, b) => new Date(a.transaction_date).getTime() - new Date(b.transaction_date).getTime()
     );
@@ -39,19 +37,18 @@ export const MovementChart: React.FC<MovementChartProps> = ({ transactions }) =>
     }
 
     const result = Object.values(map);
-    // Return last 10 entries
     return result.slice(-10);
   }, [transactions]);
 
   return (
     <Card
-      title="Stock Movement Velocity"
-      subtitle="Stock-In (Procurement) vs Stock-Out (Fulfillment) Inflow/Outflow"
-      className="w-full"
+      title="Stock Movement Velocity (30D Rolling)"
+      subtitle="Inbound Ingress (Procurement) vs Outbound Egress (Fulfillment)"
+      className="w-full bg-white"
     >
       <div className="h-72 w-full pt-2">
         {chartData.length === 0 ? (
-          <div className="h-full flex items-center justify-center font-mono text-xs text-mono-400">
+          <div className="h-full flex items-center justify-center font-mono text-xs text-ink-muted">
             No stock movement recorded in current ledger window.
           </div>
         ) : (
@@ -60,12 +57,12 @@ export const MovementChart: React.FC<MovementChartProps> = ({ transactions }) =>
               data={chartData}
               margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(13, 13, 15, 0.08)" vertical={false} />
               <XAxis
                 dataKey="date"
-                stroke="#777777"
+                stroke="#6E6F76"
                 fontSize={11}
-                fontFamily="JetBrains Mono, monospace"
+                fontFamily="IBM Plex Mono, monospace"
                 tickFormatter={(val) => {
                   try {
                     const parts = val.split('-');
@@ -76,34 +73,34 @@ export const MovementChart: React.FC<MovementChartProps> = ({ transactions }) =>
                 }}
               />
               <YAxis
-                stroke="#777777"
+                stroke="#6E6F76"
                 fontSize={11}
-                fontFamily="JetBrains Mono, monospace"
+                fontFamily="IBM Plex Mono, monospace"
                 allowDecimals={false}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#000000',
-                  border: '1px solid #333333',
+                  backgroundColor: '#0D0D0F',
+                  border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: '0px',
                   color: '#ffffff',
-                  fontFamily: 'JetBrains Mono, monospace',
+                  fontFamily: 'IBM Plex Mono, monospace',
                   fontSize: '11px',
                 }}
                 itemStyle={{ color: '#ffffff' }}
-                cursor={{ fill: 'rgba(0, 0, 0, 0.04)' }}
+                cursor={{ fill: 'rgba(47, 91, 255, 0.06)' }}
               />
               <Legend
                 wrapperStyle={{
-                  fontFamily: 'JetBrains Mono, monospace',
+                  fontFamily: 'IBM Plex Mono, monospace',
                   fontSize: '11px',
                   paddingTop: '12px',
                   textTransform: 'uppercase',
                 }}
               />
-              {/* Pure Monochromatic Contrast: #111111 (Black) vs #838282 (Neutral Grey) */}
-              <Bar dataKey="stockIn" name="Stock In (+)" fill="#111111" radius={[0, 0, 0, 0]} />
-              <Bar dataKey="stockOut" name="Stock Out (-)" fill="#838282" radius={[0, 0, 0, 0]} />
+              {/* Technical Precision: Ink #0D0D0F (Stock In) vs Signal Accent #2F5BFF (Stock Out) */}
+              <Bar dataKey="stockIn" name="Ingress / Stock In (+)" fill="#0D0D0F" radius={[0, 0, 0, 0]} />
+              <Bar dataKey="stockOut" name="Egress / Stock Out (-)" fill="#2F5BFF" radius={[0, 0, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         )}

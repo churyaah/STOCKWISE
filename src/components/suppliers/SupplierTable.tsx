@@ -68,7 +68,7 @@ export const SupplierTable: React.FC<SupplierTableProps> = ({
   return (
     <div className="space-y-4">
       {/* Header and Search */}
-      <div className="bg-mono-0 border border-mono-200 p-4 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
+      <div className="bg-mono-50 border border-mono-200 p-4 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
         <div className="relative flex-1 max-w-md">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-mono-400" />
           <input
@@ -88,7 +88,7 @@ export const SupplierTable: React.FC<SupplierTableProps> = ({
       {/* Grid of Supplier Cards & Table */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.length === 0 ? (
-          <div className="col-span-full py-16 text-center text-mono-400 font-mono text-xs bg-mono-0 border border-mono-200">
+          <div className="col-span-full py-16 text-center text-mono-400 font-mono text-xs bg-mono-50 border border-mono-200">
             No suppliers found matching your query.
           </div>
         ) : (
@@ -98,7 +98,7 @@ export const SupplierTable: React.FC<SupplierTableProps> = ({
             return (
               <div
                 key={supplier.id}
-                className="bg-mono-0 border border-mono-200 p-5 flex flex-col justify-between hover:border-mono-800 transition-colors group"
+                className="bg-mono-50 border border-mono-200 p-5 flex flex-col justify-between hover:border-mono-800 transition-colors group"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">

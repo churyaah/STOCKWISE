@@ -8,37 +8,71 @@
   }
 
   body {
-    background-color: #f2f2f2;
-    color: #111111;
-    font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #EFEFEE;
+    color: #0D0D0F;
+    font-family: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Clash Display', 'Inter', sans-serif;
+    font-family: 'Archivo', sans-serif;
     letter-spacing: -0.04em;
+    font-weight: 800;
   }
 
-  /* Monochromatic custom scrollbars */
+  /* Industrial Hairlines */
+  .hairline-b {
+    border-bottom: 1px solid rgba(13, 13, 15, 0.12);
+  }
+  .hairline-t {
+    border-top: 1px solid rgba(13, 13, 15, 0.12);
+  }
+  .hairline-r {
+    border-right: 1px solid rgba(13, 13, 15, 0.12);
+  }
+  .hairline-l {
+    border-left: 1px solid rgba(13, 13, 15, 0.12);
+  }
+  .hairline-all {
+    border: 1px solid rgba(13, 13, 15, 0.12);
+  }
+
+  /* Dark theme hairlines */
+  .dark-hairline-b {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .dark-hairline-t {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .dark-hairline-r {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .dark-hairline-l {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Precision scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
-
   ::-webkit-scrollbar-track {
-    background: #f2f2f2;
+    background: #EFEFEE;
   }
-
   ::-webkit-scrollbar-thumb {
-    background: #b6b5b5;
+    background: #B5B6BB;
     border-radius: 0px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-    background: #111111;
+    background: #0D0D0F;
   }
 }
 
-/* Hide scrollbar utility for horizontal pills */
+/* Pause animation on hover */
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

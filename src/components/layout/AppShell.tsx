@@ -20,7 +20,11 @@ import { SettingsView } from '../settings/SettingsView';
 import { useData } from '../../context/DataContext';
 import { Product, Supplier } from '../../types';
 
-export const AppShell: React.FC = () => {
+interface AppShellProps {
+  onOpenShowcase?: () => void;
+}
+
+export const AppShell: React.FC<AppShellProps> = ({ onOpenShowcase }) => {
   const {
     products,
     suppliers,
@@ -36,7 +40,7 @@ export const AppShell: React.FC = () => {
     recordStockOut,
   } = useData();
 
-  const [currentTab, setCurrentTab] = useState<NavigationTab>('dashboard');
+  const [currentTab, setCurrentTab] = useState<NavigationTab>('reports');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
@@ -92,7 +96,7 @@ export const AppShell: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-mono-100 selection:bg-mono-950 selection:text-mono-0">
+    <div className="flex h-screen overflow-hidden bg-[#EFEFEE] text-[#0D0D0F] selection:bg-[#0D0D0F] selection:text-white">
       {/* Mobile Drawer Overlay */}
       {mobileSidebarOpen && (
         <div
@@ -128,6 +132,7 @@ export const AppShell: React.FC = () => {
           onToggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)}
           onOpenSearch={() => setSearchOpen(true)}
           onOpenAI={() => setAiDrawerOpen(true)}
+          onOpenShowcase={onOpenShowcase}
         />
 
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">

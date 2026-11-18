@@ -1,9 +1,9 @@
 /**
- * Monochromatic Design System Formatters
+ * StockWise AI Design System Formatters (Indian Rupee ₹ / International ISO)
  */
 
-export function formatCurrency(amount: number, symbol: string = '$'): string {
-  const formatted = new Intl.NumberFormat('en-US', {
+export function formatCurrency(amount: number, symbol: string = '₹'): string {
+  const formatted = new Intl.NumberFormat('en-IN', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount || 0);
@@ -12,7 +12,7 @@ export function formatCurrency(amount: number, symbol: string = '$'): string {
 }
 
 export function formatNumber(num: number): string {
-  return new Intl.NumberFormat('en-US').format(num || 0);
+  return new Intl.NumberFormat('en-IN').format(num || 0);
 }
 
 export function formatDate(dateString: string | undefined): string {

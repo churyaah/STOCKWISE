@@ -1,0 +1,124 @@
+﻿STOCKWISE AI 
+AI-Powered Inventory Management System
+1. Project Overview
+StockWise AI is a web-based inventory management application designed to help small businesses efficiently manage products, monitor stock levels, track inventory transactions, and make informed purchasing decisions.
+Traditional inventory management often relies on manual records and spreadsheets, making it difficult to identify low-stock products, monitor inventory movement, and maintain accurate stock information.
+StockWise AI addresses these challenges through a centralized digital platform integrated with Artificial Intelligence (AI). It provides real-time stock monitoring, automated low-stock alerts, inventory analytics, intelligent restocking recommendations, and an AI-powered chatbot.
+The application aims to simplify inventory operations, reduce manual effort, improve stock accuracy, and support data-driven business decisions.
+2. Project Persona
+Primary Persona: Small Business Owner
+Name: Alex
+Role: Small Retail Business Owner
+Business Type: Retail Store / Small Warehouse
+Profile:
+* Manages daily inventory operations.
+* Handles product purchases and sales.
+* Maintains supplier relationships.
+* Has limited time for manual stock tracking.
+* Needs a simple and affordable inventory solution.
+Goals:
+* Monitor available stock easily.
+* Avoid unexpected product shortages.
+* Identify products that require restocking.
+* Track stock-in and stock-out transactions.
+* Understand inventory performance.
+* Make better purchasing decisions.
+Pain Points:
+* Manual inventory records are time-consuming.
+* Difficulty identifying low-stock products.
+* Risk of incorrect stock calculations.
+* Limited visibility into inventory trends.
+* Difficulty generating inventory reports.
+* Lack of intelligent restocking insights.
+How StockWise AI Helps:
+StockWise AI provides a centralized dashboard, automated stock tracking, low-stock notifications, inventory reports, and AI-powered recommendations to simplify daily inventory management.
+Secondary Persona: Inventory Manager
+Role: Inventory / Store Manager
+Responsibilities:
+* Update product information.
+* Record incoming and outgoing stock.
+* Maintain supplier information.
+* Monitor inventory availability.
+* Review inventory reports.
+Needs:
+* Fast stock updates.
+* Accurate transaction history.
+* Easy product search and filtering.
+* Clear inventory status indicators.
+3. Project Objectives
+The primary objective of StockWise AI is to develop an intelligent inventory management system that improves stock visibility, operational efficiency, and inventory decision-making.
+Specific Objectives
+1. Centralized Inventory Management: Maintain product, supplier, and inventory information in a centralized database.
+2. Real-Time Stock Tracking: Automatically update product quantities whenever stock-in or stock-out transactions occur.
+3. Low-Stock Monitoring: Identify products that reach or fall below their predefined reorder levels.
+4. Transaction Management: Maintain accurate records of all inventory movements.
+5. Inventory Analytics: Display inventory statistics, stock movement trends, and performance reports.
+6. AI-Based Inventory Analysis: Analyse inventory data to identify fast-moving, slow-moving, and potentially overstocked products.
+7. Intelligent Restocking Recommendations: Suggest products that require replenishment using stock levels, sales history, and relevant inventory information.
+8. AI Chatbot: Allow users to ask questions about inventory through a conversational interface.
+9. Inventory Summaries: Generate understandable summaries of stock status and inventory performance.
+10. Data Security: Protect inventory information through authentication and database access controls.
+4. Project Scope (In-Scope)
+The following functionalities are included in the initial version of StockWise AI.
+A. User Authentication
+* Admin login and logout.
+* Secure authentication.
+* Protected dashboard access.
+B. Product Management
+* Add new products.
+* Edit product details.
+* Delete products.
+* Search and filter products.
+* View current stock quantities.
+* Manage product categories and pricing.
+C. Supplier Management
+* Add and update supplier details.
+* Store supplier contact information.
+* Associate products with suppliers.
+* View supplier information.
+D. Inventory Management
+* Record stock-in transactions.
+* Record stock-out transactions.
+* Automatically update stock quantities.
+* Maintain inventory transaction history.
+* Prevent stock from becoming negative.
+E. Low-Stock Alerts
+* Configure reorder levels.
+* Automatically identify low-stock products.
+* Display stock warning indicators.
+* Highlight products requiring replenishment.
+F. Dashboard and Reports
+* Display total products.
+* Display total stock quantity.
+* Calculate inventory value.
+* Show low-stock products.
+* Display recent transactions.
+* Generate inventory movement reports.
+* Visualize inventory statistics through charts.
+G. AI-Powered Features
+* Analyse inventory trends.
+* Identify fast- and slow-moving products.
+* Recommend products for restocking.
+* Answer inventory-related questions through an AI chatbot.
+* Generate AI-powered inventory summaries.
+H. Database and Security
+* Store inventory information in Supabase.
+* Maintain data relationships and transaction records.
+* Implement database access controls.
+* Protect API credentials and sensitive information.
+5. Project Scope (Out-of-Scope)
+The following features are excluded from the initial MVP and may be considered for future development.
+1. Multi-Branch Management: Managing inventory across multiple store locations or warehouses.
+2. Advanced Billing and POS: Generating customer invoices, processing payments, and managing checkout operations.
+3. Accounting Integration: Complete bookkeeping, tax management, payroll, and financial accounting.
+4. Automated Supplier Purchasing: Automatically placing purchase orders with suppliers without admin involvement.
+5. Barcode and QR Code Hardware Integration: Scanning physical product barcodes using dedicated hardware.
+6. +Delivery and Logistics Management: Tracking shipments, delivery vehicles, and order fulfilment.
+7. Customer Relationship Management: Managing customer profiles, loyalty programs, and marketing campaigns.
+8. Advanced Demand Forecasting: Complex predictive forecasting using extensive historical sales data and external market information.
+9. Mobile Native Application: Separate Android and iOS applications. The initial release will be a responsive web application.
+10. Multi-Tenant SaaS Platform: Managing independent businesses, subscriptions, and billing within one platform.
+6. Expected Project Outcome
+The expected outcome is a functional, responsive, AI-powered inventory management web application that enables small businesses to manage their inventory efficiently.
+The system will provide accurate stock tracking, streamlined inventory operations, automated low-stock alerts, visual reports, and AI-assisted inventory insights.
+StockWise AI aims to reduce manual inventory management efforts, improve stock visibility, minimize avoidable stock shortages, and support better business decisions.

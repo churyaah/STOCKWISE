@@ -63,10 +63,10 @@ export const RestockInsightCard: React.FC<RestockInsightCardProps> = ({
                       <span
                         className={`inline-block font-mono text-[9px] font-bold px-1.5 py-0.5 uppercase border ${
                           rec.priority === 'CRITICAL'
-                            ? 'bg-mono-950 text-mono-0 border-mono-950'
+                            ? 'bg-[#FF3D00]/10 text-[#FF3D00] border-[#FF3D00]/40'
                             : rec.priority === 'HIGH'
-                            ? 'bg-mono-150 text-mono-900 border-mono-800'
-                            : 'bg-mono-50 text-mono-600 border-mono-200'
+                            ? 'bg-[#2F5BFF]/10 text-[#2F5BFF] border-[#2F5BFF]/40'
+                            : 'bg-[#F2F2F4] text-[#4E5058] border-[#D7D8DD]'
                         }`}
                       >
                         {rec.priority}

@@ -167,7 +167,7 @@ export const ProductTable: React.FC<ProductTableProps> = ({
       </div>
 
       {/* Product Table Container */}
-      <div className="bg-mono-0 border border-mono-200 overflow-x-auto">
+      <div className="bg-mono-50 border border-mono-200 overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-mono-200 bg-mono-50 font-mono text-[11px] text-mono-600 uppercase tracking-wider">

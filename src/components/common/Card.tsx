@@ -21,22 +21,22 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={cn(
-        'bg-mono-0 border border-mono-200 transition-all duration-150',
-        hoverable && 'hover:border-mono-800 hover:shadow-sm',
+        'bg-white hairline-all transition-all duration-150',
+        hoverable && 'hover:border-ink hover:shadow-xs',
         className
       )}
       {...props}
     >
       {(title || headerAction) && (
-        <div className="flex items-center justify-between px-6 py-4 border-b border-mono-200">
+        <div className="flex items-center justify-between px-6 py-4 hairline-b bg-ground/50">
           <div>
             {title && (
-              <h3 className="font-display font-semibold text-mono-950 tracking-tight text-base">
+              <h3 className="font-display font-black text-ink tracking-tight text-sm uppercase">
                 {title}
               </h3>
             )}
             {subtitle && (
-              <p className="font-mono text-xs text-mono-500 mt-0.5 uppercase tracking-wide">
+              <p className="font-mono text-[10px] text-ink-muted mt-0.5 uppercase tracking-wider">
                 {subtitle}
               </p>
             )}

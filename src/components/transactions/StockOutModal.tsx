@@ -114,7 +114,7 @@ export const StockOutModal: React.FC<StockOutModalProps> = ({
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="p-3 bg-mono-100 border border-mono-950 font-mono text-xs font-bold text-mono-950 flex items-start gap-2">
+          <div className="p-3 bg-mono-50 border border-mono-200 font-mono text-xs font-bold text-mono-950 flex items-start gap-2">
             <AlertTriangle size={16} className="flex-shrink-0 mt-0.5" />
             <span>{error}</span>
           </div>

@@ -19,7 +19,7 @@ export const Badge: React.FC<BadgeProps> = ({
 }) => {
   const base = 'inline-flex items-center font-mono uppercase tracking-wider select-none';
   const sizeStyles = {
-    sm: 'text-[10px] px-2 py-0.5 gap-1',
+    sm: 'text-[9px] px-2 py-0.5 gap-1.5',
     md: 'text-xs px-2.5 py-1 gap-1.5',
   };
 
@@ -31,12 +31,12 @@ export const Badge: React.FC<BadgeProps> = ({
             className={cn(
               base,
               sizeStyles[size],
-              'bg-mono-950 text-mono-0 border border-mono-950',
+              'bg-[#E8F8EE] text-[#008736] border border-[#A6E8BA] font-bold',
               className
             )}
           >
-            <span className="w-1.5 h-1.5 bg-mono-0 rounded-full inline-block" />
-            {children || 'In Stock'}
+            <span className="w-1.5 h-1.5 bg-[#00C853] rounded-full inline-block" />
+            {children || 'Optimal'}
           </span>
         );
       case 'LOW_STOCK':
@@ -45,11 +45,11 @@ export const Badge: React.FC<BadgeProps> = ({
             className={cn(
               base,
               sizeStyles[size],
-              'bg-mono-150 text-mono-950 border border-dashed border-mono-800 font-semibold',
+              'bg-[#EEF2FF] text-[#2F5BFF] border border-[#BAC7FF] font-bold',
               className
             )}
           >
-            <span className="inline-block text-[9px]">▲</span>
+            <span className="w-1.5 h-1.5 bg-[#2F5BFF] rounded-full inline-block animate-pulse" />
             {children || 'Low Stock'}
           </span>
         );
@@ -59,22 +59,22 @@ export const Badge: React.FC<BadgeProps> = ({
             className={cn(
               base,
               sizeStyles[size],
-              'bg-mono-0 text-mono-600 border border-mono-300 line-through decoration-mono-600',
+              'bg-[#FFF3F0] text-[#FF3D00] border border-[#FFCCBC] font-bold',
               className
             )}
           >
-            <span className="w-1.5 h-1.5 border border-mono-500 rounded-full inline-block" />
-            {children || 'Out of Stock'}
+            <span className="w-1.5 h-1.5 bg-[#FF3D00] rounded-full inline-block" />
+            {children || 'Depleted'}
           </span>
         );
     }
   }
 
   const variants = {
-    solid: 'bg-mono-950 text-mono-0 border border-mono-950',
-    outline: 'bg-transparent text-mono-900 border border-mono-900',
-    neutral: 'bg-mono-150 text-mono-800 border border-mono-200',
-    subtle: 'bg-mono-50 text-mono-600 border border-mono-150',
+    solid: 'bg-[#0D0D0F] text-white border border-[#0D0D0F]',
+    outline: 'bg-transparent text-[#0D0D0F] border border-[#D7D8DD]',
+    neutral: 'bg-[#F2F2F4] text-[#4E5058] border border-[#D7D8DD]',
+    subtle: 'bg-white text-[#6E6F76] border border-[#D7D8DD]',
   };
 
   return (
